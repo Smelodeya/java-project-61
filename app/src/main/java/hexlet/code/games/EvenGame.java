@@ -1,4 +1,7 @@
-package hexlet.code;
+package hexlet.code.games;
+
+import hexlet.code.App;
+
 public class EvenGame {
     public static void play() {
         int i = 0;
@@ -21,9 +24,9 @@ public class EvenGame {
                 i++;
             } else {
                 if (isEven(number)) {
-                    System.out.println("\'" + userAnswer + "\'" + " is wrong answer ;(. Correct answer was 'yes'.");
+                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was 'yes'.");
                 } else {
-                    System.out.println("\'" + userAnswer + "\'" + " is wrong answer ;(. Correct answer was 'no'.");
+                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was 'no'.");
                 }
                 userAnswerCheck = false;
             }
@@ -35,10 +38,6 @@ public class EvenGame {
     }
 
     public static boolean isEven(int number) {
-        if (number % 2 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return number % 2 == 0;
     }
 }
