@@ -1,43 +1,30 @@
 package hexlet.code.games;
 
-import hexlet.code.App;
-
+import hexlet.code.Engine;
 public class EvenGame {
+    private static final String RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     public static void play() {
-        int i = 0;
-        boolean userAnswerCheck = true;
+        Engine.greetUser();
+        Engine.showRules(RULE);
+        Engine.playRound(generateQuestionAnswerArray());
+    }
+    private static boolean isEven(int number) {
+        return number % 2 == 0;
+    }
+    private static String[][] generateQuestionAnswerArray() {
+        String[][] questionAnswerArray = new String[Engine.NUMBER_OF_ROUND][2];
+        int number;
 
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        for (int i = 0; i < questionAnswerArray.length; i++) {
+            number = (int) (Math.random() * 100);
+            questionAnswerArray[i][0] = Integer.toString(number);
 
-        while ((i < 3) && (userAnswerCheck)) {
-
-            int number = (int) (Math.random() * 100);
-            System.out.println("Question: " + number);
-            System.out.print("Your answer: ");
-            String userAnswer = App.scanner.next();
-
-            if ((isEven(number)) && (userAnswer.equalsIgnoreCase("yes"))) {
-                System.out.println("Correct!");
-                i++;
-            } else if (!(isEven(number)) && (userAnswer.equalsIgnoreCase("no"))) {
-                System.out.println("Correct!");
-                i++;
+            if (isEven(number)) {
+                questionAnswerArray[i][1] = "yes";
             } else {
-                if (isEven(number)) {
-                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was 'yes'.");
-                } else {
-                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was 'no'.");
-                }
-                userAnswerCheck = false;
+                questionAnswerArray[i][1] = "no";
             }
         }
-
-        if (i == 3) {
-            System.out.println("Congratulations, " + App.userName + "!");
-        }
-    }
-
-    public static boolean isEven(int number) {
-        return number % 2 == 0;
+        return questionAnswerArray;
     }
 }

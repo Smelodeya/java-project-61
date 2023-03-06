@@ -1,39 +1,31 @@
 package hexlet.code.games;
 
 import hexlet.code.App;
+import hexlet.code.Engine;
 
 public class CalcGame {
+    private static final String RULE = "What is the result of the expression?";
     public static void play() {
-        int i = 0;
-        boolean userAnswerCheck = true;
+        Engine.greetUser();
+        Engine.showRules(RULE);
+        Engine.playRound(generateQuestionAnswerArray());
+    }
 
-        System.out.println("What is the result of the expression?");
+    public static String[][] generateQuestionAnswerArray() {
+        String[][] questionAnswerArray = new String[Engine.NUMBER_OF_ROUND][2];
+        int number1;
+        int number2;
+        String[] operators = new String[] {"+", "-", "*"};
+        int operator;
 
-        while ((i < 3) && (userAnswerCheck)) {
-
-            int number1 = (int) (Math.random() * 100);
-            int number2 = (int) (Math.random() * 100);
-            String[] operators = new String[] {"+", "-", "*"};
-            int indexOfOperators = (int) (Math.random() * operators.length);
-
-            System.out.println("Question: " + number1 + " " + operators[indexOfOperators] + " " + number2 );
-            System.out.print("Your answer: ");
-            String userAnswer = App.scanner.next();
-            String rightAnswer = Integer.toString(calculate(number1, number2, operators[indexOfOperators]));
-
-            if (rightAnswer.equalsIgnoreCase(userAnswer)) {
-                System.out.println("Correct!");
-                i++;
-            } else {
-                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '" + rightAnswer + "'.");
-                System.out.println("Let's try again, " + App.userName + "!");
-                userAnswerCheck = false;
-            }
+        for (int i = 0; i < questionAnswerArray.length; i++) {
+            number1 = (int) (Math.random() * 100);
+            number2 = (int) (Math.random() * 100);
+            operator = (int) (Math.random() * operators.length);
+            questionAnswerArray[i][0] = number1 + " " + operators[operator] + " " + number2;
+            questionAnswerArray[i][1] = Integer.toString(calculate(number1, number2, operators[operator]));
         }
-
-        if (i == 3) {
-            System.out.println("Congratulations, " + App.userName + "!");
-        }
+        return questionAnswerArray;
     }
 
     public static int calculate(int number1, int number2, String operator) {
