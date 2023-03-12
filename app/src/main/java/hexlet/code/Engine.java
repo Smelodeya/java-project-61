@@ -9,7 +9,7 @@ public class Engine {
         Scanner scanner = new Scanner(System.in); //как лучше объявлять переменную - как локальную в каждом методе или как статическую переменную класса?
 
         System.out.println("Welcome to the Brain Games!");
-        System.out.print("What is your name? ");
+        System.out.print("May I have your name? ");
         userName = scanner.next();
         System.out.println("Hello, " + userName + "!");
 

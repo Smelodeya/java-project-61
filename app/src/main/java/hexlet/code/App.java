@@ -20,16 +20,16 @@ public class App {
         System.out.println("5 - Progression");
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
+        System.out.print("Your choice: ");
 
         String gameNumber = scanner.next();
 
-        System.out.println("Your choice: " + gameNumber);
         switch (gameNumber) {
             case "0":
                 System.out.println("Goodbye");
                 break;
             case "1":
-                Cli.greet();
+                Engine.greetUser();
                 break;
             case "2":
                 EvenGame.play();
