@@ -3,7 +3,4 @@
 ### Code Climate Maintainability Badge:
 [![Maintainability](https://api.codeclimate.com/v1/badges/8a82a2dcb617cfd1b173/maintainability)](https://codeclimate.com/github/Smelodeya/java-project-61/maintainability)
 ### Демонстрация проекта:
-- [Игра: "Проверка на чётность"](https://asciinema.org/a/fUxLO1E1kzA9No5Pv9GmN8OZp)
-- [Игра: "Калькулятор"](https://asciinema.org/a/565187)
-- [Игра "НОД"](https://asciinema.org/a/565607)
-- [Игра "Арифметическая прогрессия"](https://asciinema.org/a/565726)
+https://asciinema.org/a/566658
