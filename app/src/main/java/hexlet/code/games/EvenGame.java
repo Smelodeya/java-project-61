@@ -1,6 +1,8 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Generator;
+
 public class EvenGame {
     private static final String RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     public static void play() {
@@ -16,7 +18,7 @@ public class EvenGame {
         int number;
 
         for (int i = 0; i < questionAnswerArray.length; i++) {
-            number = (int) (Math.random() * 100);
+            number = Generator.generateNumberFrom0To100();
             questionAnswerArray[i][0] = Integer.toString(number);
 
             if (isEven(number)) {

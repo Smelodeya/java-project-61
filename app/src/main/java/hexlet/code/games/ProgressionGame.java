@@ -1,9 +1,11 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Generator;
 
 public class ProgressionGame {
     private static final String RULE = "What number is missing in the progression?";
+    private static final int PROGRESSION_LENGTH = 10;
 
     public static void play() {
         Engine.greetUser();
@@ -28,10 +30,9 @@ public class ProgressionGame {
     }
 
     private static int[] generateProgression() {
-        int progressionLength = 10;
-        int beginNumber = (int) (Math.random() * 100);
-        int stepProgression = (int) (1 + (Math.random() * 10));
-        int[] progression = new int[progressionLength];
+        int beginNumber = Generator.generateNumberFrom0To100();
+        int stepProgression = Generator.generateNumberFrom1To10();
+        int[] progression = new int[PROGRESSION_LENGTH];
 
         progression[0] = beginNumber;
 

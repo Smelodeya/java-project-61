@@ -4,10 +4,11 @@ import java.util.Scanner;
 
 public class Engine {
     public static final int NUMBER_OF_ROUND = 3;
+    private static final String WRONG_ANSWER = "' is wrong answer ;(. Correct answer was '";
     private static String userName;
     public static void greetUser() {
-        Scanner scanner = new Scanner(System.in); //как лучше объявлять переменную - как локальную в каждом методе или как статическую переменную класса?
-
+        Scanner scanner = new Scanner(System.in);
+q
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         userName = scanner.next();
@@ -35,7 +36,7 @@ public class Engine {
                 currentRound++;
                 System.out.println("Correct!");
             } else {
-                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was " + "'" + questionAnswerArray[currentRound][1] + "'");
+                System.out.println("'" + userAnswer + WRONG_ANSWER + questionAnswerArray[currentRound][1] + "'");
                 System.out.println("Let's try again, " + userName + "!");
                 isUserAnswerRight = false;
             }

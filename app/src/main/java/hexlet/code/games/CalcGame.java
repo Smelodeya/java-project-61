@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
-import hexlet.code.App;
 import hexlet.code.Engine;
+import hexlet.code.Generator;
 
 public class CalcGame {
     private static final String RULE = "What is the result of the expression?";
@@ -19,8 +19,8 @@ public class CalcGame {
         int operator;
 
         for (int i = 0; i < questionAnswerArray.length; i++) {
-            number1 = (int) (Math.random() * 100);
-            number2 = (int) (Math.random() * 100);
+            number1 = Generator.generateNumberFrom0To100();
+            number2 = Generator.generateNumberFrom0To100();
             operator = (int) (Math.random() * operators.length);
             questionAnswerArray[i][0] = number1 + " " + operators[operator] + " " + number2;
             questionAnswerArray[i][1] = Integer.toString(calculate(number1, number2, operators[operator]));

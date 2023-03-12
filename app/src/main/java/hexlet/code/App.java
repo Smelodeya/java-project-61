@@ -25,27 +25,14 @@ public class App {
         String gameNumber = scanner.next();
 
         switch (gameNumber) {
-            case "0":
-                System.out.println("Goodbye");
-                break;
-            case "1":
-                Engine.greetUser();
-                break;
-            case "2":
-                EvenGame.play();
-                break;
-            case "3":
-                CalcGame.play();
-                break;
-            case "4":
-                GCDGame.play();
-                break;
-            case "5":
-                ProgressionGame.play();
-                break;
-            case "6":
-                PrimeGame.play();
-                break;
+            case "0" -> System.out.println("Goodbye");
+            case "1" -> Engine.greetUser();
+            case "2" -> EvenGame.play();
+            case "3" -> CalcGame.play();
+            case "4" -> GCDGame.play();
+            case "5" -> ProgressionGame.play();
+            case "6" -> PrimeGame.play();
+            default -> System.out.println("Wrong input!");
         }
         scanner.close();
     }

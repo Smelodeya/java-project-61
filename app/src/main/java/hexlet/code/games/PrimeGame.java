@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Generator;
 
 public class PrimeGame {
     private static final String RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
@@ -15,7 +16,7 @@ public class PrimeGame {
         int number;
 
         for (int i = 0; i < questionAnswerArray.length; i++) {
-            number = (int) (Math.random() * 100);
+            number = Generator.generateNumberFrom0To100();
             questionAnswerArray[i][0] = Integer.toString(number);
 
             if (isPrimary(number)) {
