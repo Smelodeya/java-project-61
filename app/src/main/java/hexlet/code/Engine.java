@@ -42,7 +42,7 @@ public class Engine {
             }
         }
 
-        if (currentRound == 3) {
+        if (currentRound == NUMBER_OF_ROUND) {
             System.out.println("Congratulations, " + userName + "!");
         }
 
