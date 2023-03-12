@@ -47,9 +47,8 @@ public class ProgressionGame {
 
         for (int value : progression) {
             if (value == hideNumber) {
-                progressionToStr.append(" .. ");
+                progressionToStr.append(".. ");
             } else {
-                progressionToStr.append(" ");
                 progressionToStr.append(value);
                 progressionToStr.append(" ");
             }
