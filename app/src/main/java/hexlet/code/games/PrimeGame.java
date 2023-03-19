@@ -1,14 +1,13 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.Generator;
+import hexlet.code.Utils;
 
 public class PrimeGame {
     private static final String RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     public static void play() {
-        Engine.greetUser();
-        Engine.showRules(RULE);
-        Engine.playRound(generateQuestionAnswerArray());
+        String[][] questionAnswerArray = generateQuestionAnswerArray();
+        new Engine(RULE, questionAnswerArray);
     }
 
     private static String[][] generateQuestionAnswerArray() {
@@ -16,28 +15,26 @@ public class PrimeGame {
         int number;
 
         for (int i = 0; i < questionAnswerArray.length; i++) {
-            number = Generator.generateNumberFrom0To100();
+            number = Utils.generateNumber(0, 100);
             questionAnswerArray[i][0] = Integer.toString(number);
 
-            if (isPrimary(number)) {
-                questionAnswerArray[i][1] = "yes";
-            } else {
-                questionAnswerArray[i][1] = "no";
-            }
+            String answer = isPrime(number) ? "yes" : "no";
+            questionAnswerArray[i][1] = answer;
         }
         return questionAnswerArray;
     }
 
-    public static boolean isPrimary(int number) {
+    public static boolean isPrime(int number) {
         double endCalculation = Math.sqrt(number);
-        boolean isPrimary = true;
+        boolean isPrime = number > 1;
         int i = 2;
-        while ((i <= endCalculation) && (isPrimary)) {
+
+        while ((i <= endCalculation) && (isPrime)) {
             if (number % i == 0) {
-                isPrimary = false;
+                isPrime = false;
             }
             i++;
         }
-        return isPrimary;
+        return isPrime;
     }
 }

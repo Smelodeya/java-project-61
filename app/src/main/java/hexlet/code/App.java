@@ -26,7 +26,7 @@ public class App {
 
         switch (gameNumber) {
             case "0" -> System.out.println("Goodbye");
-            case "1" -> Engine.greetUser();
+            case "1" -> Cli.greet();
             case "2" -> EvenGame.play();
             case "3" -> CalcGame.play();
             case "4" -> GCDGame.play();
