@@ -6,7 +6,7 @@ public class Engine {
     public static final int NUMBER_OF_ROUND = 3;
     private static final String WRONG_ANSWER = "' is wrong answer ;(. Correct answer was '";
 
-    public Engine(String rule, String[][] questionAnswerArray) {
+    public static void playRounds(String rule, String[][] questionAnswerArray) {
 
         Scanner scanner = new Scanner(System.in);
 

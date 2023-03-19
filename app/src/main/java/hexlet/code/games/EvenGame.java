@@ -5,10 +5,12 @@ import hexlet.code.Utils;
 
 
 public class EvenGame {
+    private static final int MIN = 1;
+    private static final int MAX = 100;
     private static final String RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     public static void play() {
         String[][] questionAnswerArray = generateQuestionAnswerArray();
-        new Engine(RULE, questionAnswerArray);
+        Engine.playRounds(RULE, questionAnswerArray);
     }
     private static boolean isEven(int number) {
         return number % 2 == 0;
@@ -18,7 +20,7 @@ public class EvenGame {
         int number;
 
         for (int i = 0; i < questionAnswerArray.length; i++) {
-            number = Utils.generateNumber(1, 100);
+            number = Utils.generateNumber(MIN, MAX);
             questionAnswerArray[i][0] = Integer.toString(number);
 
             String answer = isEven(number) ? "yes" : "no";

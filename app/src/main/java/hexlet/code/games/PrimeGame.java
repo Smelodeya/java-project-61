@@ -4,10 +4,12 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class PrimeGame {
+    private static final int MIN = 0;
+    private static final int MAX = 100;
     private static final String RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     public static void play() {
         String[][] questionAnswerArray = generateQuestionAnswerArray();
-        new Engine(RULE, questionAnswerArray);
+        Engine.playRounds(RULE, questionAnswerArray);
     }
 
     private static String[][] generateQuestionAnswerArray() {
@@ -15,7 +17,7 @@ public class PrimeGame {
         int number;
 
         for (int i = 0; i < questionAnswerArray.length; i++) {
-            number = Utils.generateNumber(0, 100);
+            number = Utils.generateNumber(MIN, MAX);
             questionAnswerArray[i][0] = Integer.toString(number);
 
             String answer = isPrime(number) ? "yes" : "no";
