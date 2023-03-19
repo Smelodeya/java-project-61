@@ -18,7 +18,7 @@ public class ProgressionGame {
 
         for (int i = 0; i < questionAnswerArray.length; i++) {
             int first = Utils.generateNumber(MIN, MAX);
-            int step = Utils.generateNumber(MIN + 1, MAX/10);
+            int step = Utils.generateNumber(MIN + 1, PROGRESSION_LENGTH);
             int hiddenMemberIndex = Utils.generateNumber(0, PROGRESSION_LENGTH - 1);
             String[] progression = makeProgression(first, step, PROGRESSION_LENGTH);
             String answer = progression[hiddenMemberIndex];
