@@ -8,22 +8,25 @@ public class PrimeGame {
     private static final int MAX = 100;
     private static final String RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     public static void play() {
-        String[][] questionAnswerArray = generateQuestionAnswerArray();
-        Engine.playRounds(RULE, questionAnswerArray);
+        String[][] questionsAnswers = generateQuestionsAnswers();
+        Engine.play(RULE, questionsAnswers);
     }
 
-    private static String[][] generateQuestionAnswerArray() {
-        String[][] questionAnswerArray = new String[Engine.NUMBER_OF_ROUND][2];
+    private static String[][] generateQuestionsAnswers() {
+        String[][] questionsAnswers = new String[Engine.NUMBER_OF_ROUND][2];
         int number;
 
-        for (int i = 0; i < questionAnswerArray.length; i++) {
-            number = Utils.generateNumber(MIN, MAX);
-            questionAnswerArray[i][0] = Integer.toString(number);
-
-            String answer = isPrime(number) ? "yes" : "no";
-            questionAnswerArray[i][1] = answer;
+        for (int i = 0; i < questionsAnswers.length; i++) {
+            questionsAnswers[i] = generateRoundQuestionAnswer();
         }
-        return questionAnswerArray;
+        return questionsAnswers;
+    }
+
+    private static String[] generateRoundQuestionAnswer() {
+        int number = Utils.generateNumber(MIN, MAX);
+        String question = Integer.toString(number);
+        String answer = isPrime(number) ? "yes" : "no";
+        return new String[] {question, answer};
     }
 
     public static boolean isPrime(int number) {

@@ -9,20 +9,25 @@ public class GCDGame {
     private static final String RULE = "Find the greatest common divisor of given numbers.";
 
     public static void play() {
-        String[][] questionAnswerArray = generateQuestionAnswerArray();
-        Engine.playRounds(RULE, questionAnswerArray);
+        String[][] questionsAnswers = generateQuestionsAnswers();
+        Engine.play(RULE, questionsAnswers);
     }
 
-    private static String[][] generateQuestionAnswerArray() {
-        String[][] questionAnswerArray = new String[Engine.NUMBER_OF_ROUND][2];
+    private static String[][] generateQuestionsAnswers() {
+        String[][] questionsAnswers = new String[Engine.NUMBER_OF_ROUND][2];
 
-        for (int i = 0; i < questionAnswerArray.length; i++) {
-            int number1 = Utils.generateNumber(MIN, MAX);
-            int number2 = Utils.generateNumber(MIN, MAX);
-            questionAnswerArray[i][0] = number1 + " "  + number2;
-            questionAnswerArray[i][1] = Integer.toString(findGCD(number1, number2));
+        for (int i = 0; i < questionsAnswers.length; i++) {
+            questionsAnswers[i] = generateRoundQuestionAnswer();
         }
-        return questionAnswerArray;
+        return questionsAnswers;
+    }
+
+    private static String[] generateRoundQuestionAnswer() {
+        int number1 = Utils.generateNumber(MIN, MAX);
+        int number2 = Utils.generateNumber(MIN, MAX);
+        String question = number1 + " "  + number2;
+        String answer = Integer.toString(findGCD(number1, number2));
+        return new String[] {question, answer};
     }
 
     private static int findGCD(int a, int b) {

@@ -10,25 +10,27 @@ public class ProgressionGame {
     private static final int PROGRESSION_LENGTH = 10;
 
     public static void play() {
-        String[][] questionAnswerArray = generateQuestionAnswerArray();
-        Engine.playRounds(RULE, questionAnswerArray);
+        String[][] questionsAnswers = generateQuestionsAnswers();
+        Engine.play(RULE, questionsAnswers);
     }
-    private static String[][] generateQuestionAnswerArray() {
-        String[][] questionAnswerArray = new String[Engine.NUMBER_OF_ROUND][2];
+    private static String[][] generateQuestionsAnswers() {
+        String[][] questionsAnswers = new String[Engine.NUMBER_OF_ROUND][2];
 
-        for (int i = 0; i < questionAnswerArray.length; i++) {
-            int first = Utils.generateNumber(MIN, MAX);
-            int step = Utils.generateNumber(MIN + 1, PROGRESSION_LENGTH);
-            int hiddenMemberIndex = Utils.generateNumber(0, PROGRESSION_LENGTH - 1);
-            String[] progression = makeProgression(first, step, PROGRESSION_LENGTH);
-            String answer = progression[hiddenMemberIndex];
-            progression[hiddenMemberIndex] = "..";
-            String question = String.join(" ", progression);
-
-            questionAnswerArray[i][0] = question;
-            questionAnswerArray[i][1] = answer;
+        for (int i = 0; i < questionsAnswers.length; i++) {
+            questionsAnswers[i] = generateRoundQuestionAnswer();
         }
-        return questionAnswerArray;
+        return questionsAnswers;
+    }
+
+    private static String[] generateRoundQuestionAnswer() {
+        int first = Utils.generateNumber(MIN, MAX);
+        int step = Utils.generateNumber(MIN + 1, PROGRESSION_LENGTH);
+        int hiddenMemberIndex = Utils.generateNumber(0, PROGRESSION_LENGTH - 1);
+        String[] progression = makeProgression(first, step, PROGRESSION_LENGTH);
+        String answer = progression[hiddenMemberIndex];
+        progression[hiddenMemberIndex] = "..";
+        String question = String.join(" ", progression);
+        return new String[] {question, answer};
     }
 
     private static String[] makeProgression(int first, int step, int length) {
