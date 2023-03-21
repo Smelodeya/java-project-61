@@ -18,7 +18,7 @@ public class EvenGame {
     private static String[][] generateQuestionsAnswers() {
         String[][] questionsAnswers = new String[Engine.NUMBER_OF_ROUND][2];
 
-        for (int i = 0; i < questionsAnswers.length; i++){
+        for (int i = 0; i < questionsAnswers.length; i++) {
             questionsAnswers[i] = generateRoundQuestionAnswer();
         }
 
